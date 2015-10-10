@@ -8,7 +8,7 @@ app.controller('home',function($scope,ngToast, $http){
             ngToast.create('song name is required!');
         }
         else {
-            var getreq = 'http://localhost:3000/search?qstring=' + ($scope.qstring.split(' ').join('%20'));
+            var getreq = 'https://pulsemusicsearch.herokuapp.com/search?qstring=' + ($scope.qstring.split(' ').join('%20'));
             $http.get(getreq).success(function(response){
                 if(response.reply == "ok") {
 
