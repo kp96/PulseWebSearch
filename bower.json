@@ -1,0 +1,29 @@
+{
+  "name": "PulseMusicSearch",
+  "version": "0.0.0",
+  "authors": [
+    "Krishna Kalubandi <krishnakalubandi@gmail.com>"
+  ],
+  "description": "An online music search engine",
+  "main": "index.ejs",
+  "moduleType": [
+    "node"
+  ],
+  "keywords": [
+    "freemp3download"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "angular-material": "~0.11.2"
+  }
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="/bower_components/angular-material/angular-material.min.css">
+    <link rel="stylesheet" href="/bower_components/angular-material/">
+  </head>
+  <body ng-app="pulse" ng-controller="home" >
+  <script src="/bower_components/angular/angular.min.js"></script>
+  <script src="/public/javascripts/ang-index.js"></script>
+    <md-content>
+
+
+      <md-toolbar class="top-toolbar">
+
+        <div class="md-toolbar-tools md-primary">
+          <h3> Pulse Music Search</h3>
+        </div>
+        <a href="https://github.com/you">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub"
+             data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+      </md-toolbar>
+      <md-card>
+        <md-card-content>
+          <h2 class="md-title"> "Search your favourite songs. No Ads!"</h2>
+          <p class="md-body-1">
+            Pulse Mp3 Search is an online music search engine that scrapes the download links
+            available from various music websites. To get started enter any song name you wish to search!
+          </p>
+          <div class="searchbox" align="center">
+            <md-input-container style="width: 30%">
+              <label>Song Name</label>
+              <input type="text" ng-model="query">
+            </md-input-container>
+          </div>
+
+        </md-card-content>
+        <div class="md-actions" layout="row" layout-align="center">
+          <md-button class="md-fab" aria-label="Search">
+            <md-icon md-svg-src="/public/images/ic_search_white_24px.svg" style="width: 24px; height: 24px;"></md-icon>
+            <md-tooltip md-visible="demo.showTooltip">
+              Search
+            </md-tooltip>
+          </md-button>
+        </div>
+      </md-card>
+
+    </md-content>
+
+
+    <script src="/bower_components/angular-aria/angular-aria.js"></script>
+    <script src="/bower_components/angular-animate/angular-animate.js"></script>
+    <script src="/bower_components/angular-material/angular-material.js"></script>
+
+  </body>
+</html>
