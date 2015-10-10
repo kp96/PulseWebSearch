@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <title>Pulse Music Search - Web</title>
+    <link rel='stylesheet' href='/public/stylesheets/style.css' />
     <link rel="stylesheet" href="/bower_components/angular-material/angular-material.min.css">
-    <link rel="stylesheet" href="/bower_components/angular-material/">
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/bower_components/ngToast/dist/ngToast.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
   </head>
   <body ng-app="pulse" ng-controller="home" >
+  <toast></toast>
   <script src="/bower_components/angular/angular.min.js"></script>
+  <script src="/bower_components/ngToast/dist/ngToast.min.js"></script>
   <script src="/public/javascripts/ang-index.js"></script>
     <md-content>
 
@@ -15,29 +19,36 @@
       <md-toolbar class="top-toolbar">
 
         <div class="md-toolbar-tools md-primary">
+          <md-button>
+          <md-icon md-svg-src="/public/images/ic_music_note_white_24px.svg"></md-icon>
+          </md-button>
           <h3> Pulse Music Search</h3>
         </div>
-        <a href="https://github.com/you">
+        <a href="https://github.com/kp96/PulseWebSearch">
         <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub"
              data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
       </md-toolbar>
       <md-card>
         <md-card-content>
-          <h2 class="md-title"> "Search your favourite songs. No Ads!"</h2>
+          <h2 class="md-title" style="font-family: 'Lobster', cursive;" align="center"> "Search your favourite songs. No Ads!"</h2>
           <p class="md-body-1">
             Pulse Mp3 Search is an online music search engine that scrapes the download links
             available from various music websites. To get started enter any song name you wish to search!
           </p>
+
           <div class="searchbox" align="center">
             <md-input-container style="width: 30%">
               <label>Song Name</label>
-              <input type="text" ng-model="query">
+              <input type="text" name="name" id="name" ng-model="qstring" ng-required="true">
+              <div ng-messages="myForm.name.$error" ng-if="myForm.$submitted || myForm.name.$touched">
+                <div ng-message="required">Song name is required</div>
+              </div>
             </md-input-container>
           </div>
 
         </md-card-content>
         <div class="md-actions" layout="row" layout-align="center">
-          <md-button class="md-fab" aria-label="Search">
+          <md-button class="md-fab" ng-click="submit()" aria-label="Search" ng-disabled="myForm.$invalid">
             <md-icon md-svg-src="/public/images/ic_search_white_24px.svg" style="width: 24px; height: 24px;"></md-icon>
             <md-tooltip md-visible="demo.showTooltip">
               Search
@@ -45,13 +56,33 @@
           </md-button>
         </div>
       </md-card>
+      <div class='md-padding' layout="column">
+        <md-card  ng-repeat="song in songs" class="repeated-item" ">
+          <md-card-content>
+            <h4>{{song.name}}</h4>
+            <h5>Size : {{song.size}}</h5>
+          </md-card-content>
+          <div class="md-actions" layout="row" layout-align="end center">
 
+            <a href="{{song.link}}">
+                <md-button class="md-fab"  aria-label="Download">
+                  <md-icon md-svg-src="/public/images/download.svg" style="color: white"></md-icon>
+                  <md-tooltip md-visible="demo.showTooltip">
+                    Download
+                  </md-tooltip>
+                  </md-button>
+              </a>
+
+          </div>
+        </md-card>
+      </div>
     </md-content>
 
 
     <script src="/bower_components/angular-aria/angular-aria.js"></script>
     <script src="/bower_components/angular-animate/angular-animate.js"></script>
     <script src="/bower_components/angular-material/angular-material.js"></script>
+    <script src="/bower_components/angular-sanitize/angular-sanitize.min.js"></script>
 
   </body>
 </html>
