@@ -11,3 +11,4 @@ A simple website that demonstrates the power of webscraping, node.js and angular
 3. Install bower `npm install bower -g`
 4. Install bower dependencies `bower install`
 5. Run the application `node bin/www`
+6. Open browser and type `localhost:3000`
